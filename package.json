@@ -1,0 +1,43 @@
+{
+  "name": "generator-sails-angular",
+  "version": "0.0.1",
+  "description": "A SailsJS / AngularJS generator for Yeoman",
+  "keywords": [
+    "yeoman-generator",
+    "sails",
+    "angular",
+    "sailsjs",
+    "angularjs"
+  ],
+  "homepage": "https://github.com/chiefy/generator-sails-angular",
+  "bugs": "https://github.com/chiefy/generator-sails-angular/issues",
+  "author": {
+    "name": "Christopher Najewicz",
+    "email": "chief@beefdisciple.com",
+    "url": "https://github.com/chiefy"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chiefy/generator-sails-angular.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.12.0",
+    "generator-karma": "~0.2.0",
+    "generator-angular": "~0.2.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.10.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
