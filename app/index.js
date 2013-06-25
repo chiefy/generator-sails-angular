@@ -2,49 +2,59 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var genAngular = require('generator-angular');
+var rimraf = require('rimraf');
 
 var SailsAngularGenerator = module.exports = function SailsAngularGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
+  
+  this.argument('appname', { type: String, required: false });
+  this.appname = this.appname || path.basename(process.cwd());
+  
+  this.env.register('generator-angular','angular');
+  this.angularGen = this.env.create('angular:app');
 
+  // Prevent angular:app from running npm install && bower install
+  // we'll do that when we're done here
+  this.angularGen.removeAllListeners('end');
+  
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+   // this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
-
+ 
 util.inherits(SailsAngularGenerator, yeoman.generators.Base);
 
 SailsAngularGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+  var cb = this.async(),
+      that = this;
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
-
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
-
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
-
+  
+  this.angularGen.on('end',function() {
+    that.resourceModule = that.angularGen.resourceModule;
+    that.cookiesModule = that.angularGen.cookiesModule;
+    that.sanitizeModule = that.angularGen.sanitizeModule;
     cb();
-  }.bind(this));
+  });  
+  
+  this.angularGen.run();
 };
 
 SailsAngularGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
-
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
+  
+  this.copy('app.js');
+  this.directory('views');
 };
 
 SailsAngularGenerator.prototype.projectfiles = function projectfiles() {
+  this.template('_package.json', 'package.json');
+  this.template('_bower.json', 'bower.json');
+
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('gitignore', '.gitignore');
+  this.copy('Gruntfile.js');
 };

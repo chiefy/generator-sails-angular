@@ -27,7 +27,8 @@
   "dependencies": {
     "yeoman-generator": "~0.12.0",
     "generator-karma": "~0.2.0",
-    "generator-angular": "~0.2.2"
+    "generator-angular": "~0.2.2",
+    "rimraf": "~2.2.0"
   },
   "devDependencies": {
     "mocha": "~1.10.0"
