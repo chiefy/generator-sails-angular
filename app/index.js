@@ -19,7 +19,7 @@ var SailsAngularGenerator = module.exports = function SailsAngularGenerator(args
   this.angularGen.removeAllListeners('end');
   
   this.on('end', function () {
-   // this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -36,6 +36,7 @@ SailsAngularGenerator.prototype.askFor = function askFor() {
   
   this.angularGen.on('end',function() {
     that.bootstrap = that.angularGen.bootstrap;
+    that.compassBootstrap = that.angularGen.compassBootstrap;
     that.resourceModule = that.angularGen.resourceModule;
     that.cookiesModule = that.angularGen.cookiesModule;
     that.sanitizeModule = that.angularGen.sanitizeModule;
@@ -46,13 +47,17 @@ SailsAngularGenerator.prototype.askFor = function askFor() {
       '.jshintrc',
       'Gruntfile.js',
       'package.json',
-      'component.json',
-      'bower.json'
+      'bower.json',
+      'app/scripts/app.js',
+      'app/scripts/controllers/main.js',
+      'app/views/main.html',
+      'app/index.html'
     ];
 
     filesToNix.forEach(function(file){
       rimraf.sync(file);
     });
+
 
     cb();
   });  
@@ -66,6 +71,9 @@ SailsAngularGenerator.prototype.app = function app() {
   this.template('views/layout.ejs');
   this.copy('views/404.ejs');
   this.copy('views/500.ejs');  
+  this.copy('views/main.html','app/views/main.html');
+  this.template('scripts/app.js','app/scripts/app.js');
+  this.template('scripts/controllers/main.js','app/scripts/controllers/main.js');
   this.directory('views/home');
   this.directory('api');
   this.directory('assets');

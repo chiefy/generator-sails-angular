@@ -19,6 +19,12 @@ lib-cov
 *.pid
 *.gz
 
+########################
+# bower / sass
+########################
+.sass-cache
+app/bower_components
+
 pids
 logs
 results

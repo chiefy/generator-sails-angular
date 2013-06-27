@@ -280,6 +280,12 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('lift',[
+    'clean:server',
+    'coffee',
+    'compass'
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
