@@ -11,7 +11,8 @@ var SailsAngularGenerator = module.exports = function SailsAngularGenerator(args
   this.appname = this.appname || path.basename(process.cwd());
   
   this.env.register('generator-angular','angular');
-  this.angularGen = this.env.create('angular:app');
+
+  this.angularGen = this.env.create('angular:app',{ options: { 'skip-install':true } });
 
   // Prevent angular:app from running npm install && bower install
   // we'll do that when we're done here
@@ -34,9 +35,25 @@ SailsAngularGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
   
   this.angularGen.on('end',function() {
+    that.bootstrap = that.angularGen.bootstrap;
     that.resourceModule = that.angularGen.resourceModule;
     that.cookiesModule = that.angularGen.cookiesModule;
     that.sanitizeModule = that.angularGen.sanitizeModule;
+
+    var filesToNix = [
+      '.editorconfig',
+      '.gitignore',
+      '.jshintrc',
+      'Gruntfile.js',
+      'package.json',
+      'component.json',
+      'bower.json'
+    ];
+
+    filesToNix.forEach(function(file){
+      rimraf.sync(file);
+    });
+
     cb();
   });  
   
@@ -46,7 +63,14 @@ SailsAngularGenerator.prototype.askFor = function askFor() {
 SailsAngularGenerator.prototype.app = function app() {
   
   this.copy('app.js');
-  this.directory('views');
+  this.template('views/layout.ejs');
+  this.copy('views/404.ejs');
+  this.copy('views/500.ejs');  
+  this.directory('views/home');
+  this.directory('api');
+  this.directory('assets');
+  this.directory('config');
+  
 };
 
 SailsAngularGenerator.prototype.projectfiles = function projectfiles() {
