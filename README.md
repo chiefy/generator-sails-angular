@@ -13,8 +13,9 @@ Generates a scaffold of a project based off of the latest generator-angular:app 
 - To test: `grunt test`
 
 ## Known Issues
- * Grunt live-reload, server, test do not work.
+ * Grunt live-reload, server do not work.
  * Since I'm using Restangular the generator-angular questions re: ng-resource are redundant since it's never used.
  * Not sure if anything CoffeeScript or SASS works (sorry!)
+ 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
