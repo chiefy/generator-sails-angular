@@ -2,7 +2,7 @@ module.exports.session = {
 
 	// Session secret is automatically generated when your new app is created
 	// It can be easily replaced here:
-	secret: '2f6f6c69398ae61b2edea014ce78b1bb',
+	secret: 'mybolognahasafirstnameitsd-o-p-e',
 
 	// Uncomment the following lines to use your Mongo adapter as a session store
 	// Information about setting up a Mongo adapter can be found here: https://github.com/balderdashy/sails-mongo
@@ -17,6 +17,5 @@ module.exports.session = {
 	// You can use the following config to override those settings
 	// host: 'localhost',
 	// port: 8888
-
 
 };

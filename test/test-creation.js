@@ -35,7 +35,32 @@ describe('sails-angular generator', function () {
       'bower.json',
       'package.json',
       'Gruntfile.js',
-      'views'
+      'views',
+      'views/layout.ejs',
+      'views/404.ejs',
+      'views/500.ejs',
+      'views/home/index.ejs',
+      'app/views/main.html',
+      'app/scripts/app.js',
+      'app/scripts/controllers/main.js',
+      'api/models/AwesomeThing.js',
+      'api/controllers/AwesomeThingsController.js',
+      'api/controllers/HomeController.js',
+      'api/policies/authenticated.js',
+      'assets/mixins/sails.io.js',
+      'assets/mixins',
+      'config/adapters.js',
+      'config/application.js',
+      'config/assets.js',
+      'config/bootstrap.js',
+      'config/io.js',
+      'config/local.ex.js',
+      'config/local.js',
+      'config/locales/english.js',
+      'config/policies.js',
+      'config/routes.js',
+      'config/session.js',
+      'config/views.js'
     ];
 
     this.app.run({}, function () {

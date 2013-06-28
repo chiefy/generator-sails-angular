@@ -51,13 +51,14 @@ SailsAngularGenerator.prototype.askFor = function askFor() {
       'app/scripts/app.js',
       'app/scripts/controllers/main.js',
       'app/views/main.html',
-      'app/index.html'
+      'app/index.html',
+      'test/spec/controllers/main.js',
+      'karma.conf.js'
     ];
 
     filesToNix.forEach(function(file){
       rimraf.sync(file);
     });
-
 
     cb();
   });  
@@ -74,6 +75,7 @@ SailsAngularGenerator.prototype.app = function app() {
   this.copy('views/main.html','app/views/main.html');
   this.template('scripts/app.js','app/scripts/app.js');
   this.template('scripts/controllers/main.js','app/scripts/controllers/main.js');
+  this.template('test/spec/controllers/main.js');
   this.directory('views/home');
   this.directory('api');
   this.directory('assets');
@@ -84,7 +86,8 @@ SailsAngularGenerator.prototype.app = function app() {
 SailsAngularGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
-
+  
+  this.copy('karma.conf.js');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
   this.copy('gitignore', '.gitignore');
