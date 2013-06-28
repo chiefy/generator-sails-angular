@@ -9,11 +9,12 @@ Generates a scaffold of a project based off of the latest generator-angular:app 
 - Install the generators: `npm install -g generator-sails-angular generator-angular`
 - Create project directory and `cd` into it: `mkdir my-new-project && cd $_`
 - Run: `yo sails-angular [app-name]`
+- To run project: `sails lift`
+- To test: `grunt test`
 
 ## Known Issues
  * Grunt live-reload, server, test do not work.
  * Since I'm using Restangular the generator-angular questions re: ng-resource are redundant since it's never used.
- * Need to fix Karma testing setup.
-
+ * Not sure if anything CoffeeScript or SASS works (sorry!)
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
