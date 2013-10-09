@@ -1,6 +1,9 @@
 # AngularJS / SailsJS / Restangular generator
 [![Build Status](https://secure.travis-ci.org/chiefy/generator-sails-angular.png?branch=master)](https://travis-ci.org/chiefy/generator-sails-angular)
 
+## Requires Sails 0.8.x
+I am aware that the project isn't compatible with the latest versions of SailsJS, I am planning on fixing this ASMKLM (As Soon As My Kids Let Me)
+
 Generates a scaffold of a project based off of the latest generator-angular:app and includes: SailsJS for creating a simple RESTful API backend, Restangular for consuming it inside of AngularJS & Twitter Bootstrap. 
 
 ## Getting started
