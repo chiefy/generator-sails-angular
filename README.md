@@ -1,6 +1,9 @@
 # AngularJS / SailsJS / Restangular generator
 [![Build Status](https://secure.travis-ci.org/chiefy/generator-sails-angular.png?branch=master)](https://travis-ci.org/chiefy/generator-sails-angular)
 
+## Discontinued! ##
+Looks like the SailsJS team is [starting a tooling project for AngularJS](https://github.com/balderdashy/angularSails), so I might try to help out there instead of updating this out-of-date project.
+
 ## Requires Sails 0.8.x
 I am aware that the project isn't compatible with the latest versions of SailsJS, I am planning on fixing this ASMKLM (As Soon As My Kids Let Me)
 
