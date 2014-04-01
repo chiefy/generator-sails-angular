@@ -1,44 +1,36 @@
 {
   "name": "generator-sails-angular",
-  "version": "0.0.1",
-  "description": "A SailsJS / AngularJS generator for Yeoman",
-  "keywords": [
-    "yeoman-generator",
-    "sails",
-    "angular",
-    "sailsjs",
-    "angularjs"
-  ],
-  "homepage": "https://github.com/chiefy/generator-sails-angular",
-  "bugs": "https://github.com/chiefy/generator-sails-angular/issues",
+  "version": "0.2.0",
+  "description": "Yeoman generator for SailsJS / AngularJS single page web applications",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "chiefy/generator-sails-angular",
   "author": {
     "name": "Christopher Najewicz",
     "email": "chief@beefdisciple.com",
     "url": "https://github.com/chiefy"
   },
-  "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/chiefy/generator-sails-angular.git"
+  "engines": {
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
   },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
-    "yeoman-generator": "~0.12.0",
-    "generator-karma": "~0.2.0",
-    "generator-angular": "~0.2.2",
-    "rimraf": "~2.2.0"
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.10.0"
+    "mocha": "*"
   },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  "peerDependencies": {
+    "yo": ">=1.0.0",
+    "sailsjs" : ">=0.9.0"
+  }
 }
