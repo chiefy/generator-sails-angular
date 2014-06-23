@@ -1,12 +1,9 @@
 # AngularJS / SailsJS / Restangular generator
-[![Build Status](https://secure.travis-ci.org/chiefy/generator-sails-angular.png?branch=master)](https://travis-ci.org/chiefy/generator-sails-angular)
 
-## Coming Soon (0.2.0)!
-- Sails 0.9.x / 0.10 support
-- angularSails integration
-- browserify support
-- ui-router integration
-- gulp / grunt improvements
+## Deprecation notice!
+This project is being deprecated and replaced with [sails-generate-frontend-angular](https://github.com/chiefy/sails-generate-frontend-angular) / [sails-generate-controller-angular](https://github.com/chiefy/sails-generate-controller-angular), please use with `sails 0.10.x`.
+
+[![Build Status](https://secure.travis-ci.org/chiefy/generator-sails-angular.png?branch=master)](https://travis-ci.org/chiefy/generator-sails-angular)
 
 ## Requires Sails 0.8.x
 I am aware that the project isn't compatible with the latest versions of SailsJS, I am planning on fixing this ASMKLM (As Soon As My Kids Let Me)
